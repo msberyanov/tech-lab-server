@@ -1,9 +1,9 @@
-import { getDictionary } from "../data/dictionary.js";
-import { filename, hostname, port } from "../data/constant.js";
-import { downloadDictionary } from "../utils/download-dictionary.js";
-import { downloadDictionaryCallback } from "../utils/download-dictionary-callback.js";
-import { loadDictionary } from "../utils/load-dictionary.js";
-import { loadDictionaryCallback } from "../utils/load-dictionary-callback.js";
+import { getDictionary } from "./data/dictionary.js";
+import { filename, hostname, port } from "./data/constant.js";
+import { downloadDictionary } from "./utils/download-dictionary.js";
+import { downloadDictionaryCallback } from "./utils/download-dictionary-callback.js";
+import { loadDictionary } from "./utils/load-dictionary.js";
+import { loadDictionaryCallback } from "./utils/load-dictionary-callback.js";
 
 import express from "express";
 
@@ -53,5 +53,5 @@ app.put("/update", (request, response) => {
 app.listen(port, hostname, () => {
   console.log("Сервер запущен...");
 
-  loadDictionary("./src/data/default/dictionary.json", loadDictionaryCallback);
+  loadDictionary("./data/default/dictionary.json", loadDictionaryCallback);
 });
