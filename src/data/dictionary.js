@@ -1,4 +1,4 @@
-let dictionary: Map<string, string> = null;
+let dictionary = null;
 
 export const getDictionary = () => dictionary;
 

@@ -1,11 +1,7 @@
-const fs = require('fs');
-const https = require('https');
+import fs from "fs";
+import https from 'https';
 
-export const downloadDictionary = (
-  url: string,
-  filename: string,
-  callback: (message?: string) => void,
-) => {
+export const downloadDictionary = (url, filename, callback) => {
   const stream = fs.createWriteStream(filename);
 
   https

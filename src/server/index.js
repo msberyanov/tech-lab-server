@@ -1,11 +1,11 @@
-import { getDictionary } from "../data/dictionary";
-import { filename, hostname, port } from "../data/constant";
-import { downloadDictionary } from "../utils/download-dictionary";
-import { downloadDictionaryCallback } from "../utils/download-dictionary-callback";
-import { loadDictionary } from "../utils/load-dictionary";
-import { loadDictionaryCallback } from "../utils/load-dictionary-callback";
+import { getDictionary } from "../data/dictionary.js";
+import { filename, hostname, port } from "../data/constant.js";
+import { downloadDictionary } from "../utils/download-dictionary.js";
+import { downloadDictionaryCallback } from "../utils/download-dictionary-callback.js";
+import { loadDictionary } from "../utils/load-dictionary.js";
+import { loadDictionaryCallback } from "../utils/load-dictionary-callback.js";
 
-const express = require("express");
+import express from "express";
 
 const app = express();
 

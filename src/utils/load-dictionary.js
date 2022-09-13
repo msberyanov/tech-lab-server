@@ -1,11 +1,8 @@
-import { setDictionary } from "../data/dictionary";
+import { setDictionary } from "../data/dictionary.js";
 
-const fs = require('fs');
+import fs from "fs";
 
-export const loadDictionary = (
-  filename: string,
-  callback: (message?: string) => void
-) => {
+export const loadDictionary = (filename, callback) => {
   fs.readFile(filename, (error, data) => {
     if (error) {
       console.error(error);
