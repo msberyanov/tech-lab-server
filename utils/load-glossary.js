@@ -1,8 +1,8 @@
-import { setDictionary } from "../data/dictionary.js";
+import { setGlossary } from "../data/glossary.js";
 
 import fs from "fs";
 
-export const loadDictionary = (filename, callback) => {
+export const loadGlossary = (filename, callback) => {
   fs.readFile(filename, (error, data) => {
     if (error) {
       console.error(error);
@@ -11,7 +11,7 @@ export const loadDictionary = (filename, callback) => {
       return;
     }
 
-    setDictionary(JSON.parse(data));
+    setGlossary(JSON.parse(data));
 
     console.log('Словарь обновлен');
     callback();

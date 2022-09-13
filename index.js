@@ -1,9 +1,9 @@
-import { getDictionary } from "./data/dictionary.js";
+import { getGlossary } from "./data/glossary.js";
 import { filename, hostname, port } from "./data/constant.js";
-import { downloadDictionary } from "./utils/download-dictionary.js";
-import { downloadDictionaryCallback } from "./utils/download-dictionary-callback.js";
-import { loadDictionary } from "./utils/load-dictionary.js";
-import { loadDictionaryCallback } from "./utils/load-dictionary-callback.js";
+import { downloadGlossary } from "./utils/download-glossary.js";
+import { downloadGlossaryCallback } from "./utils/download-glossary-callback.js";
+import { loadGlossary } from "./utils/load-glossary.js";
+import { loadGlossaryCallback } from "./utils/load-glossary-callback.js";
 
 import express from "express";
 
@@ -16,14 +16,14 @@ app.get("/get", (request, response) => {
 
   if (!term) {
     response.writeHead(200);
-    response.end(JSON.stringify(getDictionary()));
+    response.end(JSON.stringify(getGlossary()));
 
     return;
   }
 
-  if (getDictionary()[term]) {
+  if (getGlossary()[term]) {
     response.writeHead(200);
-    response.end(getDictionary()[term]);
+    response.end(getGlossary()[term]);
   } else {
     response.writeHead(404);
     response.end();
@@ -31,7 +31,7 @@ app.get("/get", (request, response) => {
 });
 
 app.get("/ready", (_, response) => {
-    if (getDictionary()) {
+    if (getGlossary()) {
       response.writeHead(200);
       response.end('Сервис готов к обслуживанию');
     } else {
@@ -41,9 +41,9 @@ app.get("/ready", (_, response) => {
 });
 
 app.put("/update", (request, response) => {
-  const dictionaryUrl = request.body.dictionaryUrl;
+  const glossaryUrl = request.body.glossaryUrl;
 
-  downloadDictionary(dictionaryUrl, filename, downloadDictionaryCallback);
+  downloadGlossary(glossaryUrl, filename, downloadGlossaryCallback);
 
   response.writeHead(200);
   response.end();
@@ -53,5 +53,5 @@ app.put("/update", (request, response) => {
 app.listen(port, hostname, () => {
   console.log("Сервер запущен...");
 
-  loadDictionary("./data/default/dictionary.json", loadDictionaryCallback);
+  loadGlossary("./data/default/glossary.json", loadGlossaryCallback);
 });
