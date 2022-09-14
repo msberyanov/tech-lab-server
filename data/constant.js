@@ -1,3 +1,4 @@
-export const hostname = "localhost";
+export const hostName = "localhost";
 export const port = 8080;
-export const filename = "glossary.json";
+export const glossaryFilename = "glossary.json";
+export const mindMapFilename = "mindmap.json";

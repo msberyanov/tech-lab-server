@@ -1,7 +1,7 @@
 import fs from "fs";
 import https from 'https';
 
-export const downloadGlossary = (url, filename, callback) => {
+export const downloadFile = (url, filename, callback) => {
   const stream = fs.createWriteStream(filename);
 
   https
