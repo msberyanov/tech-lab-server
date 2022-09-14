@@ -50,7 +50,7 @@ app.put("/update", (request, response) => {
 });
 
 
-app.listen(port, hostname, () => {
+app.listen(port, () => {
   console.log("Сервер запущен...");
 
   loadGlossary("./data/default/glossary.json", loadGlossaryCallback);
